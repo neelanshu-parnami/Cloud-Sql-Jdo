@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+	version="2.5">
+	<servlet>
+		<servlet-name>create</servlet-name>
+		<servlet-class>com.example.appengine.helloworld.CreateServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>create</servlet-name>
+		<url-pattern>/create</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>fetch</servlet-name>
+		<servlet-class>com.example.appengine.helloworld.FetchServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>fetch</servlet-name>
+		<url-pattern>/fetch</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>updateStudent</servlet-name>
+		<servlet-class>com.example.appengine.helloworld.UpdateStudentServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>updateStudent</servlet-name>
+		<url-pattern>/updateStudent</url-pattern>
+	</servlet-mapping>
+
+<servlet>
+		<servlet-name>updateParent</servlet-name>
+		<servlet-class>com.example.appengine.helloworld.UpdateParentServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>updateParent</servlet-name>
+		<url-pattern>/updateParent</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>addParent</servlet-name>
+		<servlet-class>com.example.appengine.helloworld.AddParentServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>addParent</servlet-name>
+		<url-pattern>/addParent</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>delete</servlet-name>
+		<servlet-class>com.example.appengine.helloworld.DeleteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>delete</servlet-name>
+		<url-pattern>/delete</url-pattern>
+	</servlet-mapping>
+</web-app>

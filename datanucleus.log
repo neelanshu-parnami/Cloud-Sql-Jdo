@@ -1,0 +1,61 @@
+23:43:25,260 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JDO"
+23:43:25,673 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+23:43:26,205 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\Basic Software for Dell\old-backup\my backup\my backup\my workspace\java-docs-samples-master\java-docs-samples-master\appengine\helloworld\target\appengine-helloworld-1.0-SNAPSHOT\WEB-INF\classes\com\example\appengine\Entity\Student.class" with enhanced definition
+23:43:26,207 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 1 classes. Timings : input=440 ms, enhance=91 ms, total=531 ms. Consult the log for full details
+08:35:33,198 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JDO"
+08:35:33,362 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+08:35:33,734 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\Basic Software for Dell\old-backup\my backup\my backup\my workspace\java-docs-samples-master\java-docs-samples-master\appengine\helloworld\target\appengine-helloworld-1.0-SNAPSHOT\WEB-INF\classes\com\example\appengine\Entity\Student.class" with enhanced definition
+08:35:33,736 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 1 classes. Timings : input=266 ms, enhance=106 ms, total=372 ms. Consult the log for full details
+08:58:36,870 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JDO"
+08:58:37,012 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+08:58:37,282 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\Basic Software for Dell\old-backup\my backup\my backup\my workspace\java-docs-samples-master\java-docs-samples-master\appengine\helloworld\target\appengine-helloworld-1.0-SNAPSHOT\WEB-INF\classes\com\example\appengine\Entity\Student.class" with enhanced definition
+08:58:37,283 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 1 classes. Timings : input=199 ms, enhance=71 ms, total=270 ms. Consult the log for full details
+09:12:14,840 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JDO"
+09:12:14,999 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+09:12:15,344 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\Basic Software for Dell\old-backup\my backup\my backup\my workspace\java-docs-samples-master\java-docs-samples-master\appengine\helloworld\target\appengine-helloworld-1.0-SNAPSHOT\WEB-INF\classes\com\example\appengine\Entity\Student.class" with enhanced definition
+09:12:15,346 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 1 classes. Timings : input=259 ms, enhance=87 ms, total=346 ms. Consult the log for full details
+11:28:08,899 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JDO"
+11:28:09,176 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+11:28:09,302 (main) ERROR [DataNucleus.Enhancer] - DataNucleus Enhancer completed with an error. Please review the enhancer log for full details. Some classes may have been enhanced but some caused errors
+No "persistence.xml" files were found in the CLASSPATH yet you specified as input the name ("Demo") of a "persistence-unit" to enhance. You must have a valid "persistence.xml" file in the CLASSPATH in a valid location to use this option.
+org.datanucleus.enhancer.NucleusEnhanceException: No "persistence.xml" files were found in the CLASSPATH yet you specified as input the name ("Demo") of a "persistence-unit" to enhance. You must have a valid "persistence.xml" file in the CLASSPATH in a valid location to use this option.
+	at org.datanucleus.enhancer.DataNucleusEnhancer.getFileMetadataForInput(DataNucleusEnhancer.java:785)
+	at org.datanucleus.enhancer.DataNucleusEnhancer.enhance(DataNucleusEnhancer.java:525)
+	at org.datanucleus.enhancer.DataNucleusEnhancer.main(DataNucleusEnhancer.java:1258)
+11:56:37,304 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JDO"
+11:56:37,468 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+11:56:37,809 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\Basic Software for Dell\old-backup\my backup\my backup\my workspace\java-docs-samples-master\java-docs-samples-master\appengine\helloworld\target\appengine-helloworld-1.0-SNAPSHOT\WEB-INF\classes\com\example\appengine\Entity\Student.class" with enhanced definition
+11:56:37,811 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 1 classes. Timings : input=254 ms, enhance=87 ms, total=341 ms. Consult the log for full details
+12:05:07,945 (main) ERROR [DataNucleus.Persistence] - Error : Could not find API definition for name "JDO". Perhaps you dont have the requisite datanucleus-api-XXX jar in the CLASSPATH?
+12:07:22,744 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JDO"
+12:07:22,905 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+12:07:23,242 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\Basic Software for Dell\old-backup\my backup\my backup\my workspace\java-docs-samples-master\java-docs-samples-master\appengine\helloworld\target\appengine-helloworld-1.0-SNAPSHOT\WEB-INF\classes\com\example\appengine\Entity\Student.class" with enhanced definition
+12:07:23,244 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 1 classes. Timings : input=249 ms, enhance=89 ms, total=338 ms. Consult the log for full details
+12:14:14,779 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JDO"
+12:14:14,977 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+12:14:15,401 (main) INFO  [DataNucleus.Enhancer] - Class "com.example.appengine.Entity.Student" is already enhanced.
+12:14:15,401 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 1 classes. Timings : input=380 ms, enhance=43 ms, total=423 ms. Consult the log for full details
+12:20:18,347 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JDO"
+12:20:18,514 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+12:20:18,852 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\Basic Software for Dell\old-backup\my backup\my backup\my workspace\java-docs-samples-master\java-docs-samples-master\appengine\helloworld\target\appengine-helloworld-1.0-SNAPSHOT\WEB-INF\classes\com\example\appengine\Entity\Student.class" with enhanced definition
+12:20:18,854 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 1 classes. Timings : input=250 ms, enhance=88 ms, total=338 ms. Consult the log for full details
+12:23:47,238 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JDO"
+12:23:47,404 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+12:23:47,817 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\Basic Software for Dell\old-backup\my backup\my backup\my workspace\java-docs-samples-master\java-docs-samples-master\appengine\helloworld\target\appengine-helloworld-1.0-SNAPSHOT\WEB-INF\classes\com\example\appengine\Entity\Student.class" with enhanced definition
+12:23:47,819 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 1 classes. Timings : input=326 ms, enhance=88 ms, total=414 ms. Consult the log for full details
+12:28:10,699 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JDO"
+12:28:10,864 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+12:28:11,198 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\Basic Software for Dell\old-backup\my backup\my backup\my workspace\java-docs-samples-master\java-docs-samples-master\appengine\helloworld\target\appengine-helloworld-1.0-SNAPSHOT\WEB-INF\classes\com\example\appengine\Entity\Student.class" with enhanced definition
+12:28:11,199 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 1 classes. Timings : input=247 ms, enhance=87 ms, total=334 ms. Consult the log for full details
+12:31:15,658 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JDO"
+12:31:15,828 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+12:31:16,175 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\Basic Software for Dell\old-backup\my backup\my backup\my workspace\java-docs-samples-master\java-docs-samples-master\appengine\helloworld\target\appengine-helloworld-1.0-SNAPSHOT\WEB-INF\classes\com\example\appengine\Entity\Student.class" with enhanced definition
+12:31:16,177 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 1 classes. Timings : input=256 ms, enhance=91 ms, total=347 ms. Consult the log for full details
+12:56:07,995 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JDO"
+12:56:08,161 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+12:56:08,511 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\Basic Software for Dell\old-backup\my backup\my backup\my workspace\java-docs-samples-master\java-docs-samples-master\appengine\helloworld\target\appengine-helloworld-1.0-SNAPSHOT\WEB-INF\classes\com\example\appengine\Entity\Student.class" with enhanced definition
+12:56:08,513 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 1 classes. Timings : input=260 ms, enhance=90 ms, total=350 ms. Consult the log for full details
+13:07:44,799 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer for API "JDO"
+13:07:44,965 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer (version 3.1.1) : Enhancement of classes
+13:07:45,320 (main) INFO  [DataNucleus.Enhancer] - Writing class file "D:\Basic Software for Dell\old-backup\my backup\my backup\my workspace\java-docs-samples-master\java-docs-samples-master\appengine\helloworld\target\appengine-helloworld-1.0-SNAPSHOT\WEB-INF\classes\com\example\appengine\Entity\Student.class" with enhanced definition
+13:07:45,322 (main) INFO  [DataNucleus.Enhancer] - DataNucleus Enhancer completed with success for 1 classes. Timings : input=264 ms, enhance=90 ms, total=354 ms. Consult the log for full details

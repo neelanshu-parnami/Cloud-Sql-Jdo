@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+	<packaging>war</packaging>
+	<version>1.0-SNAPSHOT</version>
+	<groupId>com.example.appengine</groupId>
+	<artifactId>cloud-sql-hello-world</artifactId>
+
+	<properties>
+		<appengine.app.id>metacampus-in</appengine.app.id>
+		<appengine.app.version>guest4</appengine.app.version>
+		<nonmvnlibdir>${basedir}\nonmvnlib</nonmvnlibdir>
+		<warDir>${project.build.directory}/${project.artifactId}-${project.version}</warDir>
+		<appengine.sdk.version>1.9.54</appengine.sdk.version>
+		<INSTANCE_CONNECTION_NAME>metacampus-in:us-central1:test</INSTANCE_CONNECTION_NAME>
+		<user>root</user>
+		<password>ciitdc#123</password>
+		<database>guestbook</database>
+	</properties>
+
+
+	<!-- <parent> <groupId>com.google.cloud</groupId> <artifactId>appengine-doc-samples</artifactId> 
+		<version>1.0.0</version> <relativePath>..</relativePath> </parent> -->
+	<dependencies>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+			<version>2.5</version>
+			<scope>provided</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.google.appengine</groupId>
+			<artifactId>appengine-api-1.0-sdk</artifactId>
+			<version>${appengine.sdk.version}</version>
+		</dependency>
+
+		<!-- <dependency> <groupId>org.datanucleus</groupId> <artifactId>datanucleus-core</artifactId> 
+			<version>3.1.3</version> <scope>runtime</scope> </dependency> -->
+
+		<dependency>
+			<groupId>javax.jdo</groupId>
+			<artifactId>jdo-api</artifactId>
+			<version>3.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.datanucleus</groupId>
+			<artifactId>datanucleus-api-jdo</artifactId>
+			<version>3.1.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.appengine.orm</groupId>
+			<artifactId>datanucleus-appengine</artifactId>
+			<version>2.1.2</version>
+		</dependency>
+
+		<dependency> <!-- ONLY USED LOCALY -->
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.40</version>  <!-- v5.x.x is for production, v6.x.x EAP X DevAPI -->
+		</dependency>
+		<dependency>
+			<groupId>com.google.cloud.sql</groupId>
+			<artifactId>mysql-socket-factory</artifactId>
+			<version>1.0.3</version>
+		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.datanucleus/datanucleus-rdbms -->
+		<dependency>
+			<groupId>org.datanucleus</groupId>
+			<artifactId>datanucleus-rdbms</artifactId>
+			<version>3.1.1</version>
+		</dependency>
+
+		<!-- <dependency> <groupId>org.datanucleus</groupId> <artifactId>datanucleus-accessplatform-jdo-rdbms</artifactId> 
+			<version>3.3.0-release</version> <type>pom</type> </dependency> -->
+	</dependencies>
+
+
+	<build>
+		<!-- for hot reload of the web application -->
+		<outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
+		<plugins>
+			<!-- <plugin> <groupId>org.apache.maven.plugins</groupId> <version>3.0</version> 
+				<artifactId>maven-compiler-plugin</artifactId> <configuration> <source>1.7</source> 
+				<target>1.7</target> </configuration> </plugin> -->
+			<!-- Parent POM defines ${appengine.sdk.version} (updates frequently). -->
+
+			<plugin>
+				<groupId>com.google.appengine</groupId>
+				<artifactId>appengine-maven-plugin</artifactId>
+				<version>${appengine.sdk.version}</version>
+				<configuration>
+					<port>8080</port>
+					<jvmFlags>
+						<jvmFlag>-Xdebug</jvmFlag>
+						<jvmFlag>-Xrunjdwp:transport=dt_socket,address=8000,server=y,suspend=n
+						</jvmFlag>
+					</jvmFlags>
+					<version>${appVersion}</version>
+					<appId>${applicationId}</appId>
+					<email>${appEmail}</email>
+					<oauth2>false</oauth2>
+					<noCookies>true</noCookies>
+					<passin>true</passin>
+				</configuration>
+			</plugin>
+
+			<plugin>
+				<groupId>org.datanucleus</groupId>
+				<artifactId>maven-datanucleus-plugin</artifactId>
+				<version>3.1.2</version>
+				<configuration>
+					<verbose>false</verbose>
+					<fork>false</fork>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>process-classes</phase>
+						<goals>
+							<goal>enhance</goal>
+						</goals>
+					</execution>
+				</executions>
+				 <dependencies>
+					<dependency>
+						<groupId>org.datanucleus</groupId>
+						<artifactId>datanucleus-core</artifactId>
+						<version>3.1.3</version>
+						<scope>runtime</scope>
+					</dependency>
+				</dependencies> 
+
+			</plugin>
+
+		</plugins>
+	</build>
+</project>
+<!-- [END pom] -->

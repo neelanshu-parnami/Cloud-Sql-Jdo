@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd"
+	version="1.0">
+
+	<persistence-unit name="Demo">
+		<class>com.example.appengine.Entity.TestClass</class>
+		<class>com.example.appengine.Entity.Parent</class>
+		<class>com.example.appengine.Entity.Student</class>
+		<exclude-unlisted-classes />
+
+		<properties>
+			<property name="javax.jdo.option.ConnectionUserName" value="root" />
+			<property name="datanucleus.autoCreateSchema" value="true" />
+			<property name="javax.jdo.PersistenceManagerFactoryClass"
+				value="org.datanucleus.api.jdo.JDOPersistenceManagerFactory" />
+			<property name="javax.jdo.option.ConnectionDriverName"
+				value="com.mysql.jdbc.GoogleDriver" />
+			<property name="javax.jdo.option.ConnectionURL"
+				value="jdbc:google:mysql://metacampus-in:us-central1:test/guestbook" />
+			<property name="javax.jdo.option.ConnectionUserName" value="root" />
+			<property name="datanucleus.autoCreateSchema" value="true" />
+			<property name="javax.jdo.option.ConnectionPassword" value="ciitdc#123" />
+			<!-- <property name="datanucleus.rdbms.datastoreAdapterClassName"
+				value="org.datanucleus.store.rdbms.datastoreadapter" /> -->
+		</properties>
+
+	</persistence-unit>
+
+</persistence>
