@@ -3,6 +3,7 @@
 package com.example.appengine.helloworld;
 
 import java.io.IOException;
+import java.util.Properties;
 
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
@@ -26,10 +27,11 @@ public class DeleteServlet extends HttpServlet {
 			return; // ignore the request for favicon.ico
 		}
 
-
+		String tenantId = req.getParameter("tenantId");
+		Properties properties = new Properties();
+		properties.put("datanucleus.TenantID", tenantId);
+		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory(properties, "Demo");
 		
-		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("Demo");
-
 		// Insert a few rows.
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();

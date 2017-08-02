@@ -6,9 +6,7 @@
 	version="1.0">
 
 	<persistence-unit name="Demo">
-		<class>com.example.appengine.Entity.TestClass</class>
-		<class>com.example.appengine.Entity.Parent</class>
-		<class>com.example.appengine.Entity.Student</class>
+		<mapping-file>com/example/appengine/Entity/package.jdo</mapping-file>
 		<exclude-unlisted-classes />
 
 		<properties>
@@ -22,10 +20,8 @@
 				value="jdbc:google:mysql://metacampus-in:us-central1:test/guestbook" />
 			<property name="javax.jdo.option.ConnectionUserName" value="root" />
 			<property name="datanucleus.autoCreateSchema" value="true" />
-			<property name="javax.jdo.option.ConnectionPassword" value="ciitdc#123" />
-			<!-- <property name="datanucleus.rdbms.datastoreAdapterClassName"
-				value="org.datanucleus.store.rdbms.datastoreadapter" /> -->
-		</properties>
+			<property name="javax.jdo.option.ConnectionPassword" value="ciitdc#123" />	
+		</properties> 
 
 	</persistence-unit>
 

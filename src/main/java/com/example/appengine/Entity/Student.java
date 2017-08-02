@@ -5,15 +5,23 @@ import java.util.List;
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
 import javax.jdo.annotations.Element;
+import javax.jdo.annotations.Extension;
+import javax.jdo.annotations.Extensions;
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.PersistenceCapable;
+//import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 import javax.jdo.listener.StoreCallback;
+import javax.jdo.spi.StateManager;
 
 
 @PersistenceCapable
-public class Student implements StoreCallback{
+/*@Extensions({
+	@Extension(key = "multitenancy-column-name", value = "TENANT", vendorName = "datanucleus"),
+	@Extension(key = "multitenancy-column-length", value = "24", vendorName = "datanucleus")	
+})*/
+public class Student {
       
 	@PrimaryKey
     @Persistent(valueStrategy = IdGeneratorStrategy.IDENTITY)
@@ -32,17 +40,17 @@ public class Student implements StoreCallback{
 	private List<Parent> parents;
 	
 	
-	@Persistent
+	/*@Persistent
 	private int tenantId;
 	
 	public int getTenantId() {
 		return tenantId;
-	}
-
+	}*/
+/*
 	public void setTenantId(int tenantId) {
 		this.tenantId = tenantId;
 	}
-
+*/
 	public int getStudentId() {
 		return studentId;
 	}
@@ -78,14 +86,15 @@ public class Student implements StoreCallback{
 
 	@Override
 	public String toString() {
-		return "Student [studentId=" + studentId + ", firstName=" + firstName
+		return "Student [studentId=" + studentId + " , firstName=" + firstName
 				+ ", lastName=" + lastName + ", parent=" + parents.toString() + "]";
 	}
 
-	@Override
+
+/*	@Override
 	public void jdoPreStore() {
 		 PersistenceManager pm = JDOHelper.getPersistenceManager (this);
 		 this.tenantId = (Integer)pm.getUserObject();		
 	}
-	
+*/	
 }

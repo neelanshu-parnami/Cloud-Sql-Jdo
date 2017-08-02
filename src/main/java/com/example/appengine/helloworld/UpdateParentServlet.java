@@ -4,6 +4,7 @@ package com.example.appengine.helloworld;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Properties;
 
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
@@ -25,8 +26,11 @@ public class UpdateParentServlet extends HttpServlet {
 		if (path.startsWith("/favicon.ico")) {
 			return; // ignore the request for favicon.ico
 		}
-
-		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("Demo");
+		
+		String tenantId = req.getParameter("tenantId");
+		Properties properties = new Properties();
+		properties.put("datanucleus.TenantID", tenantId);
+		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory(properties, "Demo");		
 		PersistenceManager pm = pmf.getPersistenceManager();
 		String id = req.getParameter("id");
 		int idInt = Integer.parseInt(id);

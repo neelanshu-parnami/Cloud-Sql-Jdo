@@ -2,6 +2,8 @@ package com.example.appengine.Entity;
 
 import javax.jdo.JDOHelper;
 import javax.jdo.PersistenceManager;
+import javax.jdo.annotations.Extension;
+import javax.jdo.annotations.Extensions;
 import javax.jdo.annotations.IdGeneratorStrategy;
 import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
@@ -10,7 +12,7 @@ import javax.jdo.listener.StoreCallback;
 
 
 @PersistenceCapable
-public class Parent implements StoreCallback {
+public class Parent /*implements StoreCallback*/ {
 
 	
 	@PrimaryKey
@@ -23,7 +25,7 @@ public class Parent implements StoreCallback {
 	@Persistent
 	private String lastName;
 
-	@Persistent
+/*	@Persistent
 	private int tenantId;
 	
 	
@@ -34,7 +36,7 @@ public class Parent implements StoreCallback {
 	public void setTenantId(int tenantId) {
 		this.tenantId = tenantId;
 	}
-
+*/
 	public int getParentId() {
 		return parentId;
 	}
@@ -65,10 +67,10 @@ public class Parent implements StoreCallback {
 				+ ", lastName=" + lastName + "]";
 	}
 
-	@Override
+	/*@Override
 	public void jdoPreStore() {
 		 PersistenceManager pm = JDOHelper.getPersistenceManager (this);
 		 this.tenantId = (Integer)pm.getUserObject();
-	}
+	}*/
 	
 }
