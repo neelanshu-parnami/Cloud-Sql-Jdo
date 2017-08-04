@@ -18,6 +18,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.datanucleus.api.jdo.JDOPersistenceManagerFactory;
+import org.datanucleus.metadata.PersistenceUnitMetaData;
+
 import com.example.appengine.Entity.Parent;
 import com.example.appengine.Entity.Student;
 
@@ -93,15 +96,46 @@ public class CreateServlet extends HttpServlet {
 		
 	}
 	
-	public void storeStudent(String firstName, String lastName, List<Parent> parents, String tanentId){
+	public void storeStudent(String firstName, String lastName, List<Parent> parents, String tenantId){
 
-		Properties properties = new Properties();	
-		properties.put("datanucleus.TenantID", tanentId);
+/*		PersistenceUnitMetaData pumd = new PersistenceUnitMetaData("dynamic-unit", "RESOURCE_LOCAL", null);
+		pumd.addProperty("datanucleus.PersistenceUnitName", "Demo"+tenantId);
+		pumd.addProperty("javax.jdo.PersistenceManagerFactoryClass", "org.datanucleus.api.jdo.JDOPersistenceManagerFactory");
+		pumd.addProperty("javax.jdo.option.ConnectionDriverName", "com.mysql.jdbc.GoogleDriver");
+		pumd.addProperty("javax.jdo.option.ConnectionURL", "jdbc:google:mysql://metacampus-in:us-central1:test/guestbook");
+		pumd.addProperty("javax.jdo.option.ConnectionUserName", "root");
+		pumd.addProperty("datanucleus.autoCreateSchema", "true");
+		pumd.addProperty("javax.jdo.option.ConnectionPassword", "ciitdc#123");
+		pumd.addProperty("javax.jdo.option.NontransactionalRead", "true");
+		pumd.addProperty("javax.jdo.option.NontransactionalWrite", "true");
+		pumd.addProperty("javax.jdo.option.Multithreaded", "true");
+		pumd.addProperty("javax.jdo.option.RetainValues", "true");
+		pumd.addProperty("datanucleus.singletonPMFForName", "true");
+		pumd.addProperty("datanucleus.cache.level2.type", "none");
+		pumd.addProperty("datanucleus.TenantID", tenantId);
 		
-		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory(properties, "Demo");
+		PersistenceManagerFactory pmf = new JDOPersistenceManagerFactory(pumd, null);
+*/		
+		Properties properties = new Properties();	
+/*		properties.put("datanucleus.PersistenceUnitName", "Demo"+tanentId);
+		properties.put("javax.jdo.PersistenceManagerFactoryClass", "org.datanucleus.api.jdo.JDOPersistenceManagerFactory");
+		properties.put("javax.jdo.option.ConnectionDriverName", "com.mysql.jdbc.GoogleDriver");
+		properties.put("javax.jdo.option.ConnectionURL", "jdbc:google:mysql://metacampus-in:us-central1:test/guestbook");
+		properties.put("javax.jdo.option.ConnectionUserName", "root");
+		properties.put("datanucleus.autoCreateSchema", "true");
+		properties.put("javax.jdo.option.ConnectionPassword", "ciitdc#123");
+		properties.put("javax.jdo.option.NontransactionalRead", "true");
+		properties.put("javax.jdo.option.NontransactionalWrite", "true");
+		properties.put("javax.jdo.option.Multithreaded", "true");
+		properties.put("javax.jdo.option.RetainValues", "true");
+		properties.put("datanucleus.singletonPMFForName", "true");
+		properties.put("datanucleus.cache.level2.type", "none");*/
+		properties.put("datanucleus.TenantID", tenantId);
+		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory(properties, "Metacampus"+tenantId);
+		System.out.println("PMF Object ID:"+pmf);
 		PersistenceManager pm = pmf.getPersistenceManager();
 		Transaction tx = pm.currentTransaction();
-		pm.setUserObject(tanentId);
+		//pm.setUserObject(tanentId);
 
 		Student student = new Student();
 		student.setFirstName(firstName);
