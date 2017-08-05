@@ -3,18 +3,15 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation="http://java.sun.com/xml/ns/jdo/jdoconfig">
 
-	<persistence-manager-factory name="Metacampus123">
-		<property name="javax.jdo.PersistenceManagerFactoryClass"
-			value="org.datanucleus.api.jdo.JDOPersistenceManagerFactory" />
-		<property name="javax.jdo.option.ConnectionDriverName" value="com.mysql.jdbc.GoogleDriver" />
-		<property name="javax.jdo.option.ConnectionURL"
-			value="jdbc:google:mysql://metacampus-in:us-central1:test/guestbook" />
+	<persistence-manager-factory name="Metacampus">
+		<property name="javax.jdo.PersistenceManagerFactoryClass" value="org.datanucleus.api.jdo.JDOPersistenceManagerFactory" />
+		<property name="javax.jdo.option.ConnectionDriverName" value="com.mysql.jdbc.Driver" />
+		<property name="javax.jdo.option.ConnectionURL" value="jdbc:mysql://localhost:3306/demo" />
 		<property name="javax.jdo.option.ConnectionUserName" value="root" />
 		<property name="datanucleus.autoCreateSchema" value="true" />
-		<property name="javax.jdo.option.ConnectionPassword" value="ciitdc#123" />
+		<property name="javax.jdo.option.ConnectionPassword" value="" />
 		<property name="javax.jdo.option.NontransactionalRead" value="true" />
-		<property name="javax.jdo.option.NontransactionalWrite"
-			value="true" />
+		<property name="javax.jdo.option.NontransactionalWrite" value="true" />
 		<property name="javax.jdo.option.Multithreaded" value="true" />
 		<property name="javax.jdo.option.RetainValues" value="true" />
 		<!-- <property name="datanucleus.appengine.autoCreateDatastoreTxns" value="false" 
@@ -23,44 +20,6 @@
 		<!-- <property name="datanucleus.cache.level1.type" value="soft"/> -->
 		<property name="datanucleus.cache.level2.type" value="none" />
 	</persistence-manager-factory>
-	<persistence-manager-factory name="Metacampus456">
-		<property name="javax.jdo.PersistenceManagerFactoryClass"
-			value="org.datanucleus.api.jdo.JDOPersistenceManagerFactory" />
-		<property name="javax.jdo.option.ConnectionDriverName" value="com.mysql.jdbc.GoogleDriver" />
-		<property name="javax.jdo.option.ConnectionURL"
-			value="jdbc:google:mysql://metacampus-in:us-central1:test/guestbook" />
-		<property name="javax.jdo.option.ConnectionUserName" value="root" />
-		<property name="datanucleus.autoCreateSchema" value="true" />
-		<property name="javax.jdo.option.ConnectionPassword" value="ciitdc#123" />
-		<property name="javax.jdo.option.NontransactionalRead" value="true" />
-		<property name="javax.jdo.option.NontransactionalWrite"
-			value="true" />
-		<property name="javax.jdo.option.Multithreaded" value="true" />
-		<property name="javax.jdo.option.RetainValues" value="true" />
-		<!-- <property name="datanucleus.appengine.autoCreateDatastoreTxns" value="false" 
-			/> -->
-		<property name="datanucleus.singletonPMFForName" value="true" />
-		<!-- <property name="datanucleus.cache.level1.type" value="soft"/> -->
-		<property name="datanucleus.cache.level2.type" value="none" />
-	</persistence-manager-factory>
-	<persistence-manager-factory name="Metacampus789">
-		<property name="javax.jdo.PersistenceManagerFactoryClass"
-			value="org.datanucleus.api.jdo.JDOPersistenceManagerFactory" />
-		<property name="javax.jdo.option.ConnectionDriverName" value="com.mysql.jdbc.GoogleDriver" />
-		<property name="javax.jdo.option.ConnectionURL"
-			value="jdbc:google:mysql://metacampus-in:us-central1:test/guestbook" />
-		<property name="javax.jdo.option.ConnectionUserName" value="root" />
-		<property name="datanucleus.autoCreateSchema" value="true" />
-		<property name="javax.jdo.option.ConnectionPassword" value="ciitdc#123" />
-		<property name="javax.jdo.option.NontransactionalRead" value="true" />
-		<property name="javax.jdo.option.NontransactionalWrite"
-			value="true" />
-		<property name="javax.jdo.option.Multithreaded" value="true" />
-		<property name="javax.jdo.option.RetainValues" value="true" />
-		<!-- <property name="datanucleus.appengine.autoCreateDatastoreTxns" value="false" 
-			/> -->
-		<property name="datanucleus.singletonPMFForName" value="true" />
-		<!-- <property name="datanucleus.cache.level1.type" value="soft"/> -->
-		<property name="datanucleus.cache.level2.type" value="none" />
-	</persistence-manager-factory>
+
+
 </jdoconfig>

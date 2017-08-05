@@ -4,9 +4,7 @@ package com.example.appengine.helloworld;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.Properties;
 
 import javax.jdo.JDOHelper;
@@ -17,9 +15,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import org.datanucleus.api.jdo.JDOPersistenceManagerFactory;
-import org.datanucleus.metadata.PersistenceUnitMetaData;
 
 import com.example.appengine.Entity.Parent;
 import com.example.appengine.Entity.Student;
@@ -130,10 +125,12 @@ public class CreateServlet extends HttpServlet {
 		properties.put("javax.jdo.option.RetainValues", "true");
 		properties.put("datanucleus.singletonPMFForName", "true");
 		properties.put("datanucleus.cache.level2.type", "none");*/
-		properties.put("datanucleus.TenantID", tenantId);
-		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory(properties, "Metacampus"+tenantId);
+		//properties.put("datanucleus.TenantID", tenantId);
+		//PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory(properties, tenantId);
+		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("Metacampus");
 		System.out.println("PMF Object ID:"+pmf);
 		PersistenceManager pm = pmf.getPersistenceManager();
+		pm.setProperty("datanucleus.TenantID", tenantId);
 		Transaction tx = pm.currentTransaction();
 		//pm.setUserObject(tanentId);
 
