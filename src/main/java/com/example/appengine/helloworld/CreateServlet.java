@@ -126,9 +126,10 @@ public class CreateServlet extends HttpServlet {
 		properties.put("datanucleus.singletonPMFForName", "true");
 		properties.put("datanucleus.cache.level2.type", "none");*/
 		//properties.put("datanucleus.TenantID", tenantId);
-		//PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory(properties, tenantId);
+		//PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory(properties, "Metacampus");
 		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("Metacampus");
 		System.out.println("PMF Object ID:"+pmf);
+		//pmf.getPersistenceManager(arg0, arg1)
 		PersistenceManager pm = pmf.getPersistenceManager();
 		pm.setProperty("datanucleus.TenantID", tenantId);
 		Transaction tx = pm.currentTransaction();

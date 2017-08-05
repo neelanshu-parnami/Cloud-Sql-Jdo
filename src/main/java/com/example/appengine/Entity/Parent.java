@@ -10,8 +10,11 @@ import javax.jdo.annotations.Persistent;
 import javax.jdo.annotations.PrimaryKey;
 import javax.jdo.listener.StoreCallback;
 
+import org.datanucleus.api.jdo.annotations.MultiTenant;
+
 
 @PersistenceCapable
+@MultiTenant(column="TENANT", columnLength=24)
 public class Parent /*implements StoreCallback*/ {
 
 	

@@ -16,12 +16,11 @@ import javax.jdo.annotations.PrimaryKey;
 import javax.jdo.listener.StoreCallback;
 import javax.jdo.spi.StateManager;
 
+import org.datanucleus.api.jdo.annotations.MultiTenant;
 
-@PersistenceCapable(identityType=IdentityType.APPLICATION)
-/*@Extensions({
-	@Extension(key = "multitenancy-column-name", value = "TENANT", vendorName = "datanucleus"),
-	@Extension(key = "multitenancy-column-length", value = "24", vendorName = "datanucleus")	
-})*/
+
+@PersistenceCapable
+@MultiTenant(column="TENANT", columnLength=24)
 public class Student {
       
 	@PrimaryKey
