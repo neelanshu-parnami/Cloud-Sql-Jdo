@@ -27,17 +27,28 @@
 			<version>2.5</version>
 			<scope>provided</scope>
 		</dependency>
-
+		<!-- https://mvnrepository.com/artifact/org.datanucleus/javax.jdo -->
 		<dependency>
-			<groupId>javax.jdo</groupId>
-			<artifactId>jdo-api</artifactId>
-			<version>3.1</version>
+			<groupId>org.datanucleus</groupId>
+			<artifactId>javax.jdo</artifactId>
+			<version>3.2.0-m7</version>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/org.datanucleus/datanucleus-enhancer -->
+		<dependency>
+			<groupId>org.datanucleus</groupId>
+			<artifactId>datanucleus-enhancer</artifactId>
+			<version>3.1.1</version>
+		</dependency>
+
+
+		<!-- <dependency> <groupId>javax.jdo</groupId> <artifactId>jdo-api</artifactId> 
+			<version>3.1</version> </dependency> -->
 
 		<dependency>
 			<groupId>org.datanucleus</groupId>
 			<artifactId>datanucleus-api-jdo</artifactId>
-			<version>3.1.2</version>
+			<version>5.0.1</version>
 		</dependency>
 
 		<dependency> <!-- ONLY USED LOCALY -->
@@ -55,16 +66,51 @@
 		<dependency>
 			<groupId>org.datanucleus</groupId>
 			<artifactId>datanucleus-rdbms</artifactId>
-			<version>3.1.1</version>
+			<version>5.0.1</version>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.datanucleus</groupId>
 			<artifactId>datanucleus-core</artifactId>
 			<version>5.0.1</version>
 			<scope>runtime</scope>
 		</dependency>
-
+<!-- <dependency>
+    <groupId>org.datanucleus</groupId>
+    <artifactId>datanucleus-maven-plugin</artifactId>
+    <version>5.0.2</version>
+</dependency> -->
 	</dependencies>
+	<build>
+	<outputDirectory>${project.build.directory}/${project.build.finalName}/WEB-INF/classes</outputDirectory>
+		<plugins>
+		<plugin>
+    <groupId>org.datanucleus</groupId>
+    <artifactId>datanucleus-maven-plugin</artifactId>
+    <version>5.0.2</version>
+				<configuration>
+					<verbose>false</verbose>
+					<fork>false</fork>
+				</configuration>
+				<executions>
+					<execution>
+						<phase>process-classes</phase>
+						<goals>
+							<goal>enhance</goal>
+						</goals>
+					</execution>
+				</executions>
+				 <dependencies>
+					<dependency>
+						<groupId>org.datanucleus</groupId>
+						<artifactId>datanucleus-core</artifactId>
+						<version>5.0.1</version>
+						<scope>runtime</scope>
+					</dependency>
+				</dependencies> 
+
+			</plugin>
+			</plugins>
+	</build>
 </project>
 <!-- [END pom] -->

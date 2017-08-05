@@ -9,7 +9,7 @@
 		<property name="javax.jdo.option.ConnectionURL" value="jdbc:mysql://localhost:3306/demo" />
 		<property name="javax.jdo.option.ConnectionUserName" value="root" />
 		<property name="datanucleus.autoCreateSchema" value="true" />
-		<property name="javax.jdo.option.ConnectionPassword" value="" />
+		<property name="javax.jdo.option.ConnectionPassword" value="root" />
 		<property name="javax.jdo.option.NontransactionalRead" value="true" />
 		<property name="javax.jdo.option.NontransactionalWrite" value="true" />
 		<property name="javax.jdo.option.Multithreaded" value="true" />

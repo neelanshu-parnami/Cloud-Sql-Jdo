@@ -8,6 +8,7 @@ import javax.jdo.annotations.Element;
 import javax.jdo.annotations.Extension;
 import javax.jdo.annotations.Extensions;
 import javax.jdo.annotations.IdGeneratorStrategy;
+import javax.jdo.annotations.IdentityType;
 import javax.jdo.annotations.PersistenceCapable;
 //import javax.jdo.annotations.PersistenceCapable;
 import javax.jdo.annotations.Persistent;
@@ -16,7 +17,7 @@ import javax.jdo.listener.StoreCallback;
 import javax.jdo.spi.StateManager;
 
 
-@PersistenceCapable
+@PersistenceCapable(identityType=IdentityType.APPLICATION)
 /*@Extensions({
 	@Extension(key = "multitenancy-column-name", value = "TENANT", vendorName = "datanucleus"),
 	@Extension(key = "multitenancy-column-length", value = "24", vendorName = "datanucleus")	
