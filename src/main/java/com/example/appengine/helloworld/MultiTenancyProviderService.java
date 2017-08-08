@@ -11,9 +11,8 @@ class MultiTenancyProviderService {
 		System.out.println("PMF Object ID:"+pmf);
 		PersistenceManager pm = pmf.getPersistenceManager();
 		//tenantId
-		pm.setProperty("datanucleus.TenantID", "1");
+		String tenantTd = ThreadContext.getTenantId();
+		pm.setProperty("datanucleus.TenantID", tenantTd);
 		return pm;
-		
-		
 	}
 }

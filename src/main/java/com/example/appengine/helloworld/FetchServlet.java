@@ -20,34 +20,19 @@ import com.example.appengine.Entity.Student;
 
 @SuppressWarnings("serial")
 public class FetchServlet extends HttpServlet {
-
+	Dao dao = new Dao();
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException,
 	ServletException {
-		String path = req.getRequestURI();
-		if (path.startsWith("/favicon.ico")) {
-			return; // ignore the request for favicon.ico
-		}
-
-/*		String tenantId = req.getParameter("tenantId");
-		Properties properties = new Properties();
-		properties.put("datanucleus.TenantID", tenantId);
-		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory(properties, "Demo");*/
-		PersistenceManager pm = MultiTenancyProviderService.getPersistenceManager();;
-		//Student student = null;
-		try {
+		String tenantId = req.getParameter("tenantId");
+		ThreadContext.setTenantId(tenantId);
+		
 			PrintWriter out = resp.getWriter();
 			resp.setContentType("text/plain");
-			//out.println("pm.getSupportedProperties():"+pm.getSupportedProperties());
-			Query query = pm.newQuery(Student.class); // Will query all from User class. Replace User with your class
-			List<Student> students = (List<Student>) query.execute();
+			List<Student> students = dao.fetchStudents();
 			for(Student student : students) {
 				out.println(student);
 			}
-		} finally {
-			pm.close();
-
-		}
 	}
 }
 

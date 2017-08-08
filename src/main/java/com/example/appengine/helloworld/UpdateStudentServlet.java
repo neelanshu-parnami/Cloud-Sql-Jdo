@@ -18,40 +18,34 @@ import com.example.appengine.Entity.Student;
 
 @SuppressWarnings("serial")
 public class UpdateStudentServlet extends HttpServlet {
-
+	Dao dao = new Dao();
 	@Override
 	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException,
 	ServletException {
-		String path = req.getRequestURI();
-		if (path.startsWith("/favicon.ico")) {
-			return; // ignore the request for favicon.ico
-		}
-
-		/*String tenantId = req.getParameter("tenantId");
-		Properties properties = new Properties();
-		properties.put("datanucleus.TenantID", tenantId);
-		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory(properties, "Demo");
-		
-		PersistenceManager pm = pmf.getPersistenceManager();*/
-		PersistenceManager pm = MultiTenancyProviderService.getPersistenceManager();
+		String tenantId = req.getParameter("tenantId");
+		ThreadContext.setTenantId(tenantId);
 		String id = req.getParameter("id");
 		int idInt = Integer.parseInt(id);
+		
 		String firstName = req.getParameter("firstname");
 		String lastName = req.getParameter("lastname");
 		Student student = null;
-		try {
-			PrintWriter out = resp.getWriter();
-			resp.setContentType("text/plain");
-			student = pm.getObjectById(Student.class, idInt);
-			out.println("before>>>"+student);
-			student.setFirstName(firstName);
-			student.setLastName(lastName);
-			pm.makePersistent(student);
-			student = pm.getObjectById(Student.class,idInt);
-			out.println("after>>>"+student);
-		} finally {
-			pm.close();
-		}
+		
+		PrintWriter out = resp.getWriter();
+		resp.setContentType("text/plain");
+		
+		student = dao.fetchStudent(idInt);
+		
+		out.println("before>>>"+student);
+		
+		student.setFirstName(firstName);
+		student.setLastName(lastName);
+		
+		dao.persistStudent(student);
+		
+		student = dao.fetchStudent(idInt);
+		
+		out.println("after>>>"+student);
 	}
 }
 
