@@ -16,11 +16,14 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.datanucleus.ExecutionContext;
+import org.datanucleus.store.schema.MultiTenancyProvider;
+
 import com.example.appengine.Entity.Parent;
 import com.example.appengine.Entity.Student;
 
 @SuppressWarnings("serial")
-public class CreateServlet extends HttpServlet {
+public class CreateServlet extends HttpServlet implements MultiTenancyProvider{
 
 	public static final String PROPERTY_TENANT_ID = "datanucleus.TenantID";
 	
@@ -32,7 +35,8 @@ public class CreateServlet extends HttpServlet {
 		if (path.startsWith("/favicon.ico")) {
 			return; // ignore the request for favicon.ico
 		}
-
+		
+		
 		List<Parent> parents = new ArrayList<Parent>();
 
 		Parent parent = new Parent();
@@ -40,6 +44,8 @@ public class CreateServlet extends HttpServlet {
 		parent.setLastName("DummyParentLastName");
 		parents.add(parent);
 
+		
+		
 		Parent parent1 = new Parent();
 		parent1.setFirstName("DummyParentFirstName1");
 		parent1.setLastName("DummyParentLastName1");
@@ -126,15 +132,11 @@ public class CreateServlet extends HttpServlet {
 		properties.put("datanucleus.singletonPMFForName", "true");
 		properties.put("datanucleus.cache.level2.type", "none");*/
 		//properties.put("datanucleus.TenantID", tenantId);
-		//PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory(properties, "Metacampus");
-		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory("Metacampus");
-		System.out.println("PMF Object ID:"+pmf);
-		//pmf.getPersistenceManager(arg0, arg1)
-		PersistenceManager pm = pmf.getPersistenceManager();
-		pm.setProperty("datanucleus.TenantID", tenantId);
-		Transaction tx = pm.currentTransaction();
-		//pm.setUserObject(tanentId);
+		//PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory(properties, tenantId);
 
+		//pm.setUserObject(tanentId);
+		PersistenceManager pm = MultiTenancyProviderService.getPersistenceManager();
+		Transaction tx = pm.currentTransaction();
 		Student student = new Student();
 		student.setFirstName(firstName);
 		student.setLastName(lastName);
@@ -152,6 +154,13 @@ public class CreateServlet extends HttpServlet {
 			pm.close();
 
 		}
+	}
+
+	@Override
+	public String getTenantId(ExecutionContext arg0) {
+		// TODO Auto-generated method stub
+		
+		return null;
 	}
 }
 

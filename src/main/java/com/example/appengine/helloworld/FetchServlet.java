@@ -29,11 +29,11 @@ public class FetchServlet extends HttpServlet {
 			return; // ignore the request for favicon.ico
 		}
 
-		String tenantId = req.getParameter("tenantId");
+/*		String tenantId = req.getParameter("tenantId");
 		Properties properties = new Properties();
 		properties.put("datanucleus.TenantID", tenantId);
-		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory(properties, "Demo");
-		PersistenceManager pm = pmf.getPersistenceManager();
+		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory(properties, "Demo");*/
+		PersistenceManager pm = MultiTenancyProviderService.getPersistenceManager();;
 		//Student student = null;
 		try {
 			PrintWriter out = resp.getWriter();

@@ -27,11 +27,12 @@ public class UpdateParentServlet extends HttpServlet {
 			return; // ignore the request for favicon.ico
 		}
 		
-		String tenantId = req.getParameter("tenantId");
+		/*String tenantId = req.getParameter("tenantId");
 		Properties properties = new Properties();
 		properties.put("datanucleus.TenantID", tenantId);
 		PersistenceManagerFactory pmf = JDOHelper.getPersistenceManagerFactory(properties, "Demo");		
-		PersistenceManager pm = pmf.getPersistenceManager();
+		PersistenceManager pm = pmf.getPersistenceManager();*/
+		PersistenceManager pm = MultiTenancyProviderService.getPersistenceManager();
 		String id = req.getParameter("id");
 		int idInt = Integer.parseInt(id);
 		String firstName = req.getParameter("firstname");
